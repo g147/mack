@@ -1,4 +1,4 @@
-%include        'io.asm'
+%include        '../io.asm'
 
 SECTION .data
 msg1    db      'Hello, World !!!', 0h
