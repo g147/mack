@@ -1,8 +1,8 @@
 ;string length calculator
 ;------------------------------
 calcStrLength:
-	push 	ebx
-	mov 	ebx, eax
+	push	ebx
+	mov		ebx, eax
 nextChar:
 	cmp		byte[eax], 0
 	jz		endFunc
@@ -18,18 +18,18 @@ endFunc:
 ; stdout
 ;------------------------------
 print:
-	push 	edx
-	push 	ecx
-	push 	ebx
-	push 	eax
-	call 	calcStrLength
-	mov 	edx, eax
+	push	edx
+	push	ecx
+	push	ebx
+	push	eax
+	call	calcStrLength
+	mov		edx, eax
 	pop		eax
 	mov		ecx, eax
-	mov 	ebx, 1
+	mov		ebx, 1
 	mov		eax, 4
 	int		80h
-	pop 	ebx
+	pop		ebx
 	pop		ecx
 	pop		edx
 	ret
@@ -39,14 +39,14 @@ print:
 ;stdout with linefeed
 ;---------------------------------
 printLF:
-	call 	print
+	call	print
 	push	eax
 	mov		eax, 0Ah
 	push	eax
 	mov		eax, esp
 	call	print
 	pop		eax
-	pop 	eax
+	pop		eax
 	ret
 ;---------------------------------
 
@@ -55,7 +55,7 @@ printLF:
 ;---------------------------------
 terminate:
 	mov		ebx, 0
-	mov 	eax, 1
+	mov		eax, 1
 	int		80h
 	ret
 ;---------------------------------
