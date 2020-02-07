@@ -2,15 +2,15 @@
 ;------------------------------
 calcStrLength:
 	push	ebx
-	mov		ebx, eax
+	mov	ebx, eax
 nextChar:
-	cmp		byte[eax], 0
-	jz		endFunc
-	inc		eax
-	jmp		nextChar
+	cmp	byte[eax], 0
+	jz	endFunc
+	inc	eax
+	jmp	nextChar
 endFunc:
-	sub		eax, ebx
-	pop		ebx
+	sub	eax, ebx
+	pop	ebx
 	ret
 ;------------------------------
 
@@ -23,15 +23,15 @@ print:
 	push	ebx
 	push	eax
 	call	calcStrLength
-	mov		edx, eax
-	pop		eax
-	mov		ecx, eax
-	mov		ebx, 1
-	mov		eax, 4
-	int		80h
-	pop		ebx
-	pop		ecx
-	pop		edx
+	mov	edx, eax
+	pop	eax
+	mov	ecx, eax
+	mov	ebx, 1
+	mov	eax, 4
+	int	80h
+	pop	ebx
+	pop	ecx
+	pop	edx
 	ret
 ;---------------------------------
 
@@ -41,12 +41,12 @@ print:
 printLF:
 	call	print
 	push	eax
-	mov		eax, 0Ah
+	mov	eax, 0Ah
 	push	eax
-	mov		eax, esp
+	mov	eax, esp
 	call	print
-	pop		eax
-	pop		eax
+	pop	eax
+	pop	eax
 	ret
 ;---------------------------------
 
@@ -54,8 +54,8 @@ printLF:
 ;terminator
 ;---------------------------------
 terminate:
-	mov		ebx, 0
-	mov		eax, 1
-	int		80h
+	mov	ebx, 0
+	mov	eax, 1
+	int	80h
 	ret
 ;---------------------------------
